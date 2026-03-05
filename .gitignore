@@ -1,0 +1,5 @@
+/data/rgb/
+*.png
+*.zip
+__pycache__/
+.ipynb_checkpoints/
