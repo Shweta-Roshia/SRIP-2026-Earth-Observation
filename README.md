@@ -21,7 +21,7 @@ Given:
 
 The goal is to construct a complete pipeline that:
 
-1. Creates a spatial grid over the region
+1. Creates a spatial grid over the Delhi-NCR region
 2. Filters satellite images located inside the study region
 3. Extracts land-cover patches from the raster dataset
 4. Assigns labels based on dominant land-cover class
@@ -38,6 +38,8 @@ srip-earth-observation
 ├── dataset_labels.csv                   # Final labeled dataset
 ├── train_split.csv                      # Training split (60%)
 ├── test_split.csv                       # Test split (40%)
+├── dataset_labels.csv                   
+├── filtered_images.csv                  # images lying inside study region
 │
 ├── data
 │   ├── delhi_ncr_region.geojson         # Delhi NCR boundary
@@ -67,8 +69,8 @@ Steps performed:
 Outputs:
 
 * Spatial grid visualization
-* Filtered image metadata
-* CSV containing valid image centers
+* Filtered image metadata (filtered_images.csv)
+* CSV containing valid image centers (image_centers.csv)
 
 ---
 
@@ -91,8 +93,11 @@ Example mapping:
 | 40       | Cropland                 |
 | 50       | Built-up                 |
 | 60       | Bare / Sparse Vegetation |
-| 80       | Water                    |
+| 70       | Snow and ice             |
+| 80       | Permanent water          |
 | 90       | Herbaceous Wetland       |
+| 95       | Mangroves                |
+| 100      | Moss and Lichen          |
 
 The dominant class becomes the **image label**.
 
