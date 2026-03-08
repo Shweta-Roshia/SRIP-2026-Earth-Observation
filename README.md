@@ -48,11 +48,10 @@ The study region used in this project is **Delhi‑NCR**.
 AI for Sustainability - Earth Observation/
 │
 ├── data/
-│   ├── rgb/                     # Satellite RGB image patches
-│   ├── archive.zip              # Original archive of RGB patches
-│   ├── delhi_airshed.geojson    # Delhi airshed boundary
-│   ├── delhi_ncr_region.geojson # Delhi NCR region shapefile
-│   └── worldcover_bbox_delhi_ncr_2021.tif  # ESA WorldCover land-cover raster
+│   ├── rgb/                                     # Satellite RGB image patches
+│   ├── delhi_airshed.geojson                    # Delhi airshed boundary
+│   ├── delhi_ncr_region.geojson                 # Delhi NCR region shapefile
+│   └── worldcover_bbox_delhi_ncr_2021.tif       # ESA WorldCover land-cover raster
 │
 ├── Earth_Observation_pipeline.ipynb  # Main notebook implementing the full pipeline
 │
@@ -119,7 +118,7 @@ Coordinates are parsed to create metadata:
 | filename | latitude | longitude |
 |----------|----------|-----------|
 
-Total images before filtering: 9 216
+Total images before filtering: 9216
 
 ### Spatial Filtering  
 Image centers are converted into a **GeoDataFrame** and tested against the NCR polygon.
@@ -134,8 +133,8 @@ Result:
 
 | Stage            | Number of Images |
 |------------------|------------------|
-| Before filtering | 9 216            |
-| After filtering  | 8 015            |
+| Before filtering |  9216            |
+| After filtering  |  8015            |
 
 Filtered metadata is saved as: `filtered_images.csv`.
 
@@ -173,7 +172,7 @@ ESA WorldCover classes are mapped to simplified labels:
 
 If no valid class exists, the label is set to `Other`.  
 The labeled dataset is stored in `dataset_labels.csv`.  
-Total labeled samples: 8 015
+Total labeled samples: 8015
 
 ### Train–Test Split  
 The dataset is split using **stratified sampling** to preserve class distribution.  
@@ -183,8 +182,8 @@ Result:
 
 | Split | Samples |
 |-------|---------|
-| Train | 4 809   |
-| Test  | 3 206   |
+| Train |  4809   |
+| Test  |  3206   |
 
 Files generated: `train_labels.csv`, `test_labels.csv`.  
 Class distributions are visualized using bar plots.
@@ -234,10 +233,10 @@ resnet18_landuse.pth
 
 Evaluation metrics:
 
-| Metric            | Score |
-|-------------------|-------|
-| Test Accuracy     | 0.66  |
-| Weighted F1 Score | 0.61  |
+| Metric            | Score   |
+|-------------------|---------|
+| Test Accuracy     | 0.6621  |
+| Weighted F1 Score | 0.6154  |
 
 A **confusion matrix** is generated to analyze prediction performance.
 
@@ -281,12 +280,10 @@ This occurs due to **class imbalance**: cropland dominates the dataset, while se
 ## Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Shweta-Roshia/SRIP-2026-AI-for-Sustainability
 cd "AI for Sustainaibility - Earth Observation"
 
-pip install geopandas rasterio shapely matplotlib numpy pandas
-pip install torch torchvision albumentations opencv-python
-pip install scikit-learn seaborn
+pip install -r requirements.txt
 ```
 
 ---
@@ -331,19 +328,16 @@ The pipeline will generate:
 
 ## Notes on AI Usage
 
-Artificial intelligence tools were used only for conceptual understanding and debugging assistance during development.
-
-All pipeline design, algorithmic logic, and code implementation were written manually as part of the project.
+AI tools were used for conceptual understanding and debugging assistance during development. All pipeline design, algorithmic logic, and code implementation were written manually as part of the project.
 
 ---
 
 ## Contributing
 
-This repository currently serves as a project implementation.  
-External contributions are not actively managed.
+Contributions are welcome if they improve the project implementation, efficiency, or reproducibility. Contributions that enhance the project are appreciated.
 
 ---
 
 ## License
 
-No license has been specified for this project.
+This project is licensed under the MIT License. See the LICENSE file for details.
